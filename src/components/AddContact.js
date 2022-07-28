@@ -6,16 +6,16 @@ class AddContact extends React.Component {
         name: "",
         email: ""
     }
-  add=(e)=>{
-    e.preventDefault();
-    if(this.state.name=="" || this.state.email==""){
-        alert("All the fields are mandatory");
-        return
+    add = (e) => {
+        e.preventDefault();
+        if (this.state.name == "" || this.state.email == "") {
+            alert("All the fields are mandatory");
+            return
+        }
+        this.props.addContactHandler(this.state);
+        this.setState({ name: "", email: "" })
     }
-    this.props.addContactHandler(this.state);
-    this.setState({name:"",email:""})
-  }
-   
+
     render() {
         return (
             <div className='ui main'>
@@ -45,5 +45,7 @@ class AddContact extends React.Component {
         )
     }
 }
+
+
 
 export default AddContact
